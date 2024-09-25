@@ -21,6 +21,7 @@ class User extends Authenticatable
         'jabatan',
         'alamat',
         'jenis_kelamin',
+        'role',
         'email',
         'password',
     ];

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::dropIfExists('absensis');
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
-            $table->string('jam_masuk');
-            $table->string('jam_keluar');
+            $table->time('jam_masuk')-> nullable();
+            $table->time('jam_keluar')-> nullable();
             $table->unsignedBigInteger('id_user');
             $table->timestamps();
 

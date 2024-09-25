@@ -14,7 +14,7 @@ class Cuti extends Model
 
     public function Absensi()
     {
-        return $this->belongsTo(Absensi::class, 'id_karyawan');
+        return $this->belongsTo(Absensi::class, 'id_user');
     }
 
 }

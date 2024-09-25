@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Absensi extends Model
 {
     use HasFactory;
+
+    public $fillable = ['jam_masuk', 'jam_keluar'];
+    public $visible = ['jam_masuk', 'jam_keluar'];
+
+    public function Absensi()
+    {
+        return $this->belongsTo(Absensi::class, 'id_user');
+    }
 }
