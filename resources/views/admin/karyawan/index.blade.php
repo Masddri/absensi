@@ -12,10 +12,8 @@
                 <th>No</th>
                 <th>Nama</th>
                 <th>Jabatan</th>
-                <th>Jenis Kelamin</th>
-                <th>Email</th>
-                <th>Role</th>
                 <th>Alamat</th>
+                <th>Jenis Kelamin</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -23,18 +21,10 @@
                 @foreach ($karyawan as $data)
                 <tr>
                     <td>{{$loop->index+1}}</td>
-                    <td>{{$data->nama_karyawan}}</td>
-                    <td>{{$data->jabatan}}</td>
-                    <td>{{$data->jenis_kelamin}}</td>
-                    <td>{{$data->email}}</td>
-                    <td>
-                        @if ($data->role == 1)
-                            Admin
-                        @else
-                            User
-                        @endif
-                    </td>
+                    <td>{{$data->nama}}</td>
+                    <td>{{$data->jabatan->nama_jabatan}}</td>
                     <td>{{$data->alamat}}</td>
+                    <td>{{$data->jenis_kelamin}}</td>
                     <td>
                         <form action="{{route('karyawan.destroy', $data->id)}}" method="POST">
                             @method('DELETE')

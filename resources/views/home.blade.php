@@ -6,13 +6,13 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-row justify-content-center">
-                            <h1 class="card-title mb-1">Selamat Datang, {{ Auth::user()->name }}</h1>
+                            <h1 class="card-title mb-1">Selama Datang Di Dashboard {{ Auth::user()->name }}</h1>
                         </div>
                         <center>
                             <div class="d-flex flex-row justify-content-center">
                                 <div class="col-12">
-                                    <h4 class="card-title mt-5">Selamat Datang Di Admin Absensi</h4>
-                                    <h4 class="card-title mt-2">PT Tritama Aji Laksana</h4>
+                                    <h4 class="card-title mt-5"></h4>
+                                    <h4 class="card-title mt-2">PT.Tritama Aji Laksana</h4>
                                 </div>
                             </div>
                         </center>
@@ -24,7 +24,7 @@
             <div class="col-sm-3 grid-margin mt-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Jumlah Data Program</h5>
+                        <h5>Jumlah Data Karyawan</h5>
                         <div class="row">
                             <div class="col-8 col-sm-12 col-xl-8 my-auto">
                                 <div class="d-flex d-sm-block d-md-flex align-items-center">

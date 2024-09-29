@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('absensis');
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
-            $table->time('jam_masuk')-> nullable();
-            $table->time('jam_keluar')-> nullable();
-            $table->unsignedBigInteger('id_user');
-            $table->timestamps();
+            $table->time('jam_masuk')->nullable();
+            $table->time('jam_keluar')->nullable();
+            $table->unsignedBigInteger('id_karyawan');
 
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_karyawan')->references('id')->on('karyawans')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

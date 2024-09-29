@@ -26,7 +26,12 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Tabel</span>
         </li>
-
+        <li class="menu-item">
+            <a href="{{ route('jabatan.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-table"></i>
+                <div data-i18n="Tables">Tabel Jabatan</div>
+            </a>
+        </li>
         <li class="menu-item">
             <a href="{{ route('karyawan.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>

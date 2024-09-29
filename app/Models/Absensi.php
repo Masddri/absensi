@@ -9,11 +9,11 @@ class Absensi extends Model
 {
     use HasFactory;
 
-    public $fillable = ['jam_masuk', 'jam_keluar'];
-    public $visible = ['jam_masuk', 'jam_keluar'];
+    public $fillable = ['jam_masuk', 'jam_keluar', 'id_karyawan'];
+    public $visible = ['jam_masuk', 'jam_keluar', 'id_karyawan'];
 
-    public function Absensi()
+    public function karyawan()
     {
-        return $this->belongsTo(Absensi::class, 'id_user');
+        return $this->belongsTo(Karyawan::class, 'id_karyawan');
     }
 }

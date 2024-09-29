@@ -15,13 +15,9 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'nama_karyawan' => 'Admin',
+            'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'jabatan' => 'Admin Aplikasi',
-            'jenis_kelamin' => 'Laki-laki',
-            'alamat' => 'Indonesia',
             'password' => Hash::make('12345678'),
-            'role' => 1,
         ]);
     }
 }

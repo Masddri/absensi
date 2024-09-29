@@ -25,10 +25,19 @@
                   <div class="col-sm-10">
                     <select name="jabatan" class="form-control">
                         <option selected disabled>-- Pilih Jabatan Anda --</option>
-                        <option value="Direktur">Direktur</option>
-                        <option value="Direktur">Direktur</option>
-                        <option value="Direktur">Direktur</option>
-                        <option value="Direktur">Direktur</option>
+                        <option value="Document Controller">Document Controller</option>
+                        <option value="Quality Control">Quality Control</option>
+                        <option value="Warehouse Personel">Warehouse Personel</option>
+                        <option value="Site Koordinator">Site Koordinator</option>
+                        <option value="Project Manager">Project Manager</option>
+                        <option value="Admin keuangan personel">Admin keuangan personel</option>
+                        <option value="Leader Admin Keuangan">Leader Admin Keuangan</option>
+                        <option value="Leader ESAR">Leader ESAR</option>
+                        <option value="Project Controller">Project Controller</option>
+                        <option value="Leader PIC Warehouse">Leader PIC Warehouse</option>
+                        <option value="Regional Project Manager">Regional Project Manager</option>
+                        <option value="OB">OB</option>
+                        <option value="Leader Quality Control">Leader Quality Control</option>
                     </select>
                   </div>
                 </div>
@@ -58,7 +67,7 @@
                   <label class="col-sm-2 col-form-label" for="basic-default-name">Role</label>
                   <div class="col-sm-10">
                     <select name="role" >
-                        <option value="0" {{ $karyawan->role == 0 ? 'selected' : '' }}>Karyawan</option>
+                        <option value="0" {{ $karyawan->role == 0 ? 'selected' : '' }}>User</option>
                         <option value="1" {{ $karyawan->role ? 'selected' : '' }}>Admin</option>
                     </select>
                   </div>

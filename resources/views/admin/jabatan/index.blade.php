@@ -1,32 +1,26 @@
 @extends('layouts.admin.template')
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Absensi</h4>
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Jabatan</h4>
     <div class="card">
-        <h5 class="card-header">Absensi <a href="{{ route('absensi.create') }}"
-            class="btn btn-sm btn-primary" style="float: right">Absen <i class="bi bi-plus-circle"></i></a></h5>
+        <h5 class="card-header">Jabatan <a href="{{ route('jabatan.create') }}"
+            class="btn btn-sm btn-primary" style="float: right">Tambah    <i class="bi bi-plus-circle"></i></a></h5>
         <div class="table-responsive text-nowrap">
           <table class="table table-hover">
             <thead>
               <tr>
                 <th>No</th>
-                <th>Nama</th>
-                <th>Jabatan</th>
-                <th>Jam Masuk</th>
-                <th>Jam Pulang</th>
+                <th>Nama Jabatan</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody class="table-border-bottom-0">
-                @foreach ($absensi as $data)
+                @foreach ($jabatan as $data)
                 <tr>
                     <td>{{$loop->index+1}}</td>
-                    <td>{{$data->user->nama_karyawan}}</td>
-                    <td>{{$data->user->jabatan}}</td>
-                    <td>{{$data->jam_masuk}}</td>
-                    <td>{{$data->jam_keluar}}</td>
+                    <td>{{$data->nama_jabatan}}</td>
                     <td>
-                        <form action="{{route('absensi.destroy', $data->id)}}" method="POST">
+                        <form action="{{route('jabatan.destroy', $data->id)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <div class="dropdown">
@@ -34,7 +28,7 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('absensi.edit', $data->id) }}"
+                                <a class="dropdown-item" href="{{ route('jabatan.edit', $data->id) }}"
                                     ><i class="bx bx-edit-alt me-2"></i> Edit</a
                                 >
                                 <button class="dropdown-item" type="submit"
