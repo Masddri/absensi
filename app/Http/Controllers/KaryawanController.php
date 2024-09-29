@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Karyawan;
 use App\Models\Jabatan;
-
-
+use App\Models\Karyawan;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -24,9 +22,9 @@ class KaryawanController extends Controller
      */
     public function create()
     {
-        $karyawan = Karyawan::all();
         $jabatan = Jabatan::all();
-        return view('admin.karyawan.create', compact('karyawan','jabatan'));
+        $karyawan = Karyawan::all();
+        return view('admin.karyawan.create', compact('karyawan', 'jabatan'));
     }
 
     /**
@@ -47,7 +45,7 @@ class KaryawanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Karyawan $karyawan)
+    public function show($id)
     {
         //
     }
@@ -55,25 +53,23 @@ class KaryawanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Karyawan $karyawan)
+    public function edit($id)
     {
+        $jabatan = Jabatan::all();
         $karyawan = Karyawan::findOrFail($id);
-        return view('admin.karyawan.edit', compact('karyawan'));
+        return view('admin.karyawan.edit', compact('karyawan', 'jabatan'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Karyawan $karyawan)
+    public function update(Request $request, $id)
     {
         $karyawan = Karyawan::findOrFail($id);
         $karyawan->nama = $request->nama;
-        // $karyawan->jabatan = $request->jabatan;
+        $karyawan->id_jabatan = $request->id_jabatan;
         $karyawan->alamat = $request->alamat;
         $karyawan->jenis_kelamin = $request->jenis_kelamin;
-        // $karyawan->email = $request->email;
-        // $karyawan->role = $request->role;
-        $karyawan->password = Hash::make($request->password);
         $karyawan->save();
 
         return redirect()->route('karyawan.index');
@@ -82,8 +78,10 @@ class KaryawanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Karyawan $karyawan)
+    public function destroy($id)
     {
-        //
+        $karyawan = Karyawan::findOrFail($id);
+        $karyawan->delete();
+        return redirect()->route('karyawan.index');
     }
 }

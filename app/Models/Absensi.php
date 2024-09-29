@@ -9,8 +9,8 @@ class Absensi extends Model
 {
     use HasFactory;
 
-    public $fillable = ['jam_masuk', 'jam_keluar', 'id_karyawan'];
-    public $visible = ['jam_masuk', 'jam_keluar', 'id_karyawan'];
+    protected $fillable = ['jam_masuk', 'jam_keluar', 'id_karyawan'];
+    public $timestamps = true;
 
     public function karyawan()
     {

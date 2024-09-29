@@ -40,7 +40,7 @@ class JabatanController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Jabatan $jabatan)
+    public function show($id)
     {
         //
     }
@@ -48,7 +48,7 @@ class JabatanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Jabatan $jabatan)
+    public function edit($id)
     {
         $jabatan = Jabatan::findOrFail($id);
         return view('admin.jabatan.edit', compact('jabatan'));
@@ -57,7 +57,7 @@ class JabatanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Jabatan $jabatan)
+    public function update(Request $request, $id)
     {
         $jabatan = Jabatan::findOrFail($id);
         $jabatan->nama_jabatan = $request->nama_jabatan;
@@ -70,8 +70,11 @@ class JabatanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jabatan $jabatan)
+    public function destroy($id)
     {
-        //
+        $jabatan = Jabatan::findOrFail($id);
+        $jabatan->delete();
+        return redirect()->route('jabatan.index');
+
     }
 }

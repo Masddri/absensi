@@ -127,6 +127,26 @@
         });
     </script>
 
+    {{-- <script>
+        $(document).ready(function() {
+            $('#karyawan').change(function() {
+                // Ambil nilai dari atribut data-jabatan yang disimpan di option
+                var selectedJabatan = $(this).find('option:selected').data('jabatan');
+                var jabatanSelect = $('#jabatan');
+
+                // Kosongkan select jabatan sebelumnya
+                jabatanSelect.empty();
+
+                // Jika data jabatan ada, tambahkan opsi jabatan yang sesuai
+                if (selectedJabatan) {
+                    jabatanSelect.append('<option selected>' + selectedJabatan + '</option>');
+                } else {
+                    jabatanSelect.append('<option selected disabled>-- Jabatan tidak tersedia --</option>');
+                }
+            });
+        });
+    </script> --}}
+
 
     {{-- Untuk Jam realtime --}}
     <script>
@@ -136,16 +156,16 @@
         }, 1000);
     </script>
 
-<!-- Script to Automatically Fill Jabatan Based on Selected Karyawan -->
-<script>
-    document.getElementById('karyawan').addEventListener('change', function() {
-        var selectedKaryawan = this.options[this.selectedIndex];
-        var jabatan = selectedKaryawan.getAttribute('data-jabatan');
-        var jabatanField = document.getElementById('jabatan');
+    <!-- Script to Automatically Fill Jabatan Based on Selected Karyawan -->
+    {{-- <script>
+        document.getElementById('karyawan').addEventListener('change', function() {
+            var selectedKaryawan = this.options[this.selectedIndex];
+            var jabatan = selectedKaryawan.getAttribute('data-jabatan');
+            var jabatanField = document.getElementById('jabatan');
 
-        jabatanField.innerHTML = '<option>' + jabatan + '</option>';
-    });
-</script>
+            jabatanField.innerHTML = '<option>' + jabatan + '</option>';
+        });
+    </script> --}}
 
     @yield('js')
     @yield('script')

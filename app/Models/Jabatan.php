@@ -9,11 +9,11 @@ class Jabatan extends Model
 {
     use HasFactory;
 
-    public $fillable = ['nama_jabatan'];
-    public $visible = ['nama_jabatan'];
+    protected $fillable = ['nama_jabatan'];
+    public $timestamp = true;
 
     public function karyawan()
     {
-        return $this->hasMany(Karyawan::class, 'id_jabatan');
+        return $this->hasMany(Karyawan::class);
     }
 }
