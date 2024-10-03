@@ -16,9 +16,11 @@ class AbsensiController extends Controller
      */
     public function index()
     {
+        $today = Carbon::now()->setTimezone('Asia/Jakarta')->format('d-m-Y H-i-s');
+
         $karyawan = User::all();
         $absensi = Absensi::all();
-        return view('admin.absensi.index', compact('absensi', 'karyawan'));
+        return view('admin.absensi.index', compact('absensi', 'karyawan', 'today'));
     }
 
     /**
@@ -26,9 +28,11 @@ class AbsensiController extends Controller
      */
     public function create()
     {
+        $today = Carbon::now()->setTimezone('Asia/Jakarta')->format('Y-m-d H-i-s');
+
         $karyawan = Karyawan::all();
         $absensi = Absensi::all();
-        return view('admin.absensi.create', compact('absensi', 'karyawan'));
+        return view('admin.absensi.create', compact('absensi', 'karyawan', 'today'));
     }
 
     /**
